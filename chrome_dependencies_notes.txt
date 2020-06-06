@@ -5,3 +5,7 @@ tar -cvf /mnt/f/linux/chrome_dependencies.tar libX11.so.6  libX11.so.6.3.0 libX
 
 
 /mnt/f/linux/lib # tar -C lib/ -xvf chrome_dependencies.tar
+
+find . -maxdepth 1 \( -name "*cups*.so*"  -o -name "*xkbc*.so*"  -o -name "*nera*.so*" -o  -name "*png16*.so*" -o  -name "*thai*.so*"   -o -name "*pixm*.so*"  -o  -name "*pangoft2*.so*"  -o  -name "libGL.so.*"  -o  -name "libEGL.so.*" -o  -name "*epoxy*.so*"  -o -name "*fontconfig*.so*"  -o -name "*wayland*.so*"   -o -name "*cairo-g*.so*" \) | sort | sed 's/.\///' | tr '\n' ' '
+
+tar -cvf /mnt/f/linux/chrome_dependencies2.tar libcairo-gobject.so.2 libcairo-gobject.so.2.11510.0 libcups.so.2 libEGL.so.1 libEGL.so.1.0.0 libepoxy.so.0 libepoxy.so.0.0.0 libfontconfig.so.1 libfontconfig.so.1.10.1 libGL.so.1 libGL.so.1.0.0 libpangoft2-1.0.so.0 libpangoft2-1.0.so.0.4000.13 libpixman-1.so.0 libpixman-1.so.0.34.0 libpng16.so.16 libpng16.so.16.34.0 libthai.so.0 libthai.so.0.3.0 libwayland-client.so.0 libwayland-client.so.0.3.0 libwayland-cursor.so.0 libwayland-cursor.so.0.0.0 libwayland-egl.so.1 libwayland-egl.so.1.0.0 libwayland-server.so.0 libwayland-server.so.0.1.0 libXinerama.so.1 libXinerama.so.1.0.0 libxkbcommon.so.0 libxkbcommon.so.0.0.0
