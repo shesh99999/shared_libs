@@ -1,7 +1,17 @@
-ldd -v mnt/f/linux/chrome-linux/chrome
+Install chromium on centos 7
 
-ldd -v /mnt/f/linux/chrome-linux/chrome |  grep '/usr/lib64' | grep "=>" | cut -d "=" -f 2 | cut -d ' ' -f 2 | sort | uniq | xargs -I {} sh -c "ls -1 {}*" | tar -czf chrome-dependencies.tar.gz --files-from -
+$ sudo yum install -y epel-release
+$ sudo yum install -y chromium
 
-tar xvzf chrome-dependencies.tar.gz
+create dependencies tar 
+
+$cd /lib64; ldd -v /usr/lib64/chromium-browser/chromium-browser |  grep '/lib64/' | grep "=>" | cut -d "=" -f 2 | cut -d ' ' -f 2 | sort | uniq | cut -d "/" -f 3 | grep lib | xargs -I {} sh -c "ls -1 {}*" | tar -czf /tmp/el7-chrome-dependencies.tar.gz --files-from -
+
+verify
+
+$tar --gzip --list --verbose --file=/tmp/el7-chrome-dependencies.tar.gz
 
 
+on another linux
+$mkdir ~/chrome-dep-lib64; cd ~/chrome-dep-lib64; tar xvzf el7-chrome-dependencies.tar.gz
+$LD_LIBRARY_PATH=~/chrome-dep-lib64 ./chrome-linux/chrome --version
