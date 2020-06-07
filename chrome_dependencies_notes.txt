@@ -11,7 +11,22 @@ verify
 
 $tar --gzip --list --verbose --file=/tmp/el7-chrome-dependencies.tar.gz
 
+also build - /usr/share/fonts
+fontconfig.tar.gz
+fonts/
+fonts/.uuid
+fonts/dejavu/
+fonts/dejavu/.uuid
+fonts/dejavu/DejaVuSans-Bold.ttf
+fonts/dejavu/DejaVuSans-BoldOblique.ttf
+fonts/dejavu/DejaVuSans-ExtraLight.ttf
+fonts/dejavu/DejaVuSans-Oblique.ttf
+fonts/dejavu/DejaVuSans.ttf
+fonts/dejavu/DejaVuSansCondensed-Bold.ttf
+fonts/dejavu/DejaVuSansCondensed-BoldOblique.ttf
+fonts/dejavu/DejaVuSansCondensed-Oblique.ttf
+fonts/dejavu/DejaVuSansCondensed.ttf
 
 on another linux
-$mkdir ~/chrome-dep-lib64; cd ~/chrome-dep-lib64; tar xvzf el7-chrome-dependencies.tar.gz
-$LD_LIBRARY_PATH=~/chrome-dep-lib64 ./chrome-linux/chrome --version
+$mkdir ~/chrome-dep-lib64; cd ~/chrome-dep-lib64; tar xvzf el7-chrome-dependencies.tar.gz; tar xvzf fontconfig.tar.gz;
+$FONTCONFIG_FILE=~/fontconfig/fonts.conf LD_LIBRARY_PATH=~/chrome-dep-lib64 ./chrome-linux/chrome --version
